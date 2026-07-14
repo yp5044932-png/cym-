@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dating with me~</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Noto+Sans+SC:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="browser-frame" aria-label="Dating with me">
+        <div class="top-bar">
+          <div class="window-dots" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="address-bar">
+            <span class="link-icon" aria-hidden="true">⌁</span>
+            <span>Dating with me~</span>
+          </div>
+          <button class="top-icon" type="button" aria-label="搜索">⌕</button>
+        </div>
+
+        <div class="stage">
+          <span class="flower flower-a" aria-hidden="true">✿</span>
+          <span class="flower flower-b" aria-hidden="true">✿</span>
+          <span class="flower flower-c" aria-hidden="true">✿</span>
+          <span class="flower flower-d" aria-hidden="true">✿</span>
+
+          <article class="date-card flow-card active" id="inviteCard" data-step="invite">
+            <div class="name-badge">陈怡萌</div>
+            <div class="avatar-wrap">
+              <img
+                src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=360&q=80"
+                alt="笑脸小狗头像"
+                class="avatar"
+              />
+            </div>
+
+            <div class="headline-row" aria-hidden="true">
+              <span>✿</span>
+              <span>✿</span>
+            </div>
+
+            <h1>可以和我一起<br />约会嘛？！</h1>
+            <p class="subtext">系统检测到：对方已经紧张到开始写网页了。</p>
+
+            <div class="actions" id="actions">
+              <button class="yes-btn" id="yesBtn" type="button">愿意 ❤</button>
+              <button class="no-btn" id="noBtn" type="button">不要 ☝</button>
+            </div>
+          </article>
+
+          <article class="choice-card flow-card" id="dateCard" data-step="date" aria-live="polite">
+            <div class="small-heart">❤</div>
+            <h2>所以，你什么时候有空？</h2>
+            <p>挑一个你最想被认真安排的日子。</p>
+
+            <div class="option-grid date-options scroll-options" id="dateOptions" role="radiogroup" aria-label="选择日期"></div>
+
+            <button class="confirm-btn" id="confirmDateBtn" type="button">确定日期</button>
+          </article>
+
+          <article class="choice-card flow-card" id="foodCard" data-step="food" aria-live="polite">
+            <div class="small-heart">✿</div>
+            <h2>我们吃点什么？</h2>
+            <p id="pickedDateText">日期已锁定，接下来选择甜甜的晚餐。</p>
+
+            <div class="option-grid food-options scroll-options" id="foodOptions" role="radiogroup" aria-label="选择吃什么">
+              <button class="option-btn selected" type="button" data-value="火锅">
+                <span>热乎乎</span>
+                <strong>火锅</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="烤肉">
+                <span>香喷喷</span>
+                <strong>烤肉</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="日料">
+                <span>仪式感</span>
+                <strong>日料</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="甜品">
+                <span>先吃甜</span>
+                <strong>甜品</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="西餐">
+                <span>正式点</span>
+                <strong>西餐</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="小龙虾">
+                <span>夏天味</span>
+                <strong>小龙虾</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="烧烤">
+                <span>夜晚局</span>
+                <strong>烧烤</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="奶茶">
+                <span>先碰杯</span>
+                <strong>奶茶</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="川菜">
+                <span>下饭王</span>
+                <strong>川菜</strong>
+              </button>
+              <button class="option-btn" type="button" data-value="自助餐">
+                <span>都想吃</span>
+                <strong>自助餐</strong>
+              </button>
+            </div>
+
+            <button class="confirm-btn" id="confirmFoodBtn" type="button">确定菜单</button>
+          </article>
+
+          <article class="choice-card flow-card summary-card" id="summaryCard" data-step="summary" aria-live="polite">
+            <div class="small-heart">❤</div>
+            <h2>约会安排好啦</h2>
+            <p>请陈怡萌准时查收这份甜甜行程。</p>
+
+            <div class="summary-box">
+              <div>
+                <span>约会日期</span>
+                <strong id="summaryDate">7月14日 周二</strong>
+              </div>
+              <div>
+                <span>约会菜单</span>
+                <strong id="summaryFood">火锅</strong>
+              </div>
+            </div>
+
+            <button class="confirm-btn" id="restartBtn" type="button">重新选择</button>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

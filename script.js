@@ -16,7 +16,6 @@ const summaryFood = document.querySelector("#summaryFood");
 let evadeCount = 0;
 let selectedDate = "7月14日 周二";
 let selectedFood = "火锅";
-let noJumpTimer;
 const noWords = ["再想想嘛", "真的不要吗", "不许点这里", "给个机会", "选愿意嘛", "心软一下"];
 const weekdays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
 
@@ -79,20 +78,6 @@ function moveNoButton(event, showWords = true) {
   }
 }
 
-function startNoButtonJump(event) {
-  moveNoButton(event);
-  if (noJumpTimer) return;
-
-  noJumpTimer = window.setInterval(() => {
-    moveNoButton(undefined, evadeCount % 3 === 0);
-  }, 650);
-}
-
-function stopNoButtonJump() {
-  window.clearInterval(noJumpTimer);
-  noJumpTimer = undefined;
-}
-
 function throwPetals() {
   for (let index = 0; index < 34; index += 1) {
     const petal = document.createElement("span");
@@ -117,7 +102,6 @@ function showCard(currentCard, nextCard) {
 }
 
 function acceptInvite() {
-  stopNoButtonJump();
   noBtn.classList.remove("evade");
   noBtn.style.left = "";
   noBtn.style.top = "";
@@ -144,7 +128,6 @@ function confirmFood() {
 }
 
 function restartFlow() {
-  stopNoButtonJump();
   summaryCard.classList.remove("active");
   inviteCard.classList.add("active");
   noBtn.classList.remove("evade");
@@ -159,7 +142,7 @@ yesBtn.addEventListener("click", acceptInvite);
 confirmDateBtn.addEventListener("click", confirmDate);
 confirmFoodBtn.addEventListener("click", confirmFood);
 restartBtn.addEventListener("click", restartFlow);
-noBtn.addEventListener("click", startNoButtonJump);
+noBtn.addEventListener("click", moveNoButton);
 
 dateOptions.addEventListener("click", (event) => {
   const button = event.target.closest(".option-btn");
